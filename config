@@ -185,8 +185,10 @@ bindsym $mod+r mode "resize"
 
 bindsym $mod+Shift+x exec i3lock
 
+# background
 exec_always feh --bg-scale ~/Wallpapers/68.png
 
+# xrandr
 exec_always xrandr --output LVDS-1 --mode 1920x1080 --pos 1920x0 --rotate normal --output VGA-1 --off --output HDMI-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -195,8 +197,15 @@ bar {
         status_command i3blocks
 }
 
+
+# capslock to escape
 exec_always setxkbmap -option "caps:escape_shifted_capslock"
 
+# change keyboard layout
+bindsym $mod+p exec setxkbmap -layout us
+bindsym $mod+Shift+p exec setxkbmap -layout es
+
+# app locations
 assign [class="Alacritty"] $ws1
 assign [class="firefox"] $ws2
 assign [class="zoom"] $ws3
